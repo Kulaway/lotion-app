@@ -25,6 +25,13 @@ label:hover{
   background-color: gray;
 }
 
+/* Overall Page Organization */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 /* Page Header */
 .header-flex {
   display: flex;
@@ -32,6 +39,7 @@ label:hover{
   align-items: center;
   width: 100%;
   flex-direction: row;
+  height: 50px;
   border-top: 5px solid #423A51;
   border-bottom: 1px solid gray;
   padding-top: 10px;
@@ -47,6 +55,14 @@ label:hover{
   margin: 0 auto;
 }
 
+/* Note Menu and Editor Organization */
+.main {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex: 1;
+}
+
 /* Toggle Notes Button */
 label#menu {
   display: flex;
@@ -56,18 +72,12 @@ label#menu {
   margin: 0.5%;
 }
 
-/* Overall Page Organization */
-.page {
-  display: flex;
-}
-
-/* Notes Menu */
+/* Notes Menu Organization */
 #notes {
   display: flex;
   flex-direction: column;
   border-right: 1px solid gray;
-  height: inherit;
-  height: 825px; /* NEEDS TO BE CHANGED */
+  overflow: auto;
   width: 15%;
 }
 
@@ -82,15 +92,25 @@ label#menu {
 #notes-menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+}
+
+/* Note Selection */
+.note {
+  width: auto;
+  min-height: 100px;
+}
+
+.note:hover {
+  background-color: aquamarine;
+  border: 1px solid black;
 }
 
 /* Editor */
 #editor {
   display: flex;
   width: 85%;
-  height: 825px;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }

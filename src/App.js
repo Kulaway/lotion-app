@@ -14,8 +14,16 @@ function App() {
     }
   }
 
+  function addNote() {
+    let note = document.createElement("h3");
+    note.classList.add("note");
+    note.innerText = "Untitled";
+    document.getElementById("notes").appendChild(note);
+  }
+
   return (
-    <div>
+    <div class="page">
+
       <div class="header-flex">
         <label id="menu" onClick={toggleNotes}>&#9776;</label>
         <div id="title">
@@ -24,16 +32,16 @@ function App() {
         </div>
       </div>
 
-      <div class="page">
+      <div class="main">
         <div id="notes">
           <div id="notes-header">
             <h1>Notes</h1>
-            <label><h2>+</h2></label>
+            <label onClick={addNote}><h2>+</h2></label>
           </div>
+          
           <div id="notes-menu">
             
           </div>
-
         </div>
 
         <div id="editor">
