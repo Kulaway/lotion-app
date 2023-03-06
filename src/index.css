@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+input{
+  border: none;
+}
+
 label {
   font-size: 25px;
   padding: 0.5%;
@@ -55,62 +59,60 @@ label:hover{
   margin: 0 auto;
 }
 
-/* Note Menu and Editor Organization */
+/* Main Page Organization */
 .main {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
   flex: 1;
 }
 
-/* Toggle Notes Button */
-label#menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 0;
-  margin: 0.5%;
-}
-
-/* Notes Menu Organization */
-#notes {
-  display: flex;
-  flex-direction: column;
+/* Note Menu */
+.note-menu-box {
+  width: 20%;
   border-right: 1px solid gray;
-  overflow: auto;
-  width: 15%;
 }
 
-#notes-header {
+.note-menu-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  padding: 20px;
   border-bottom: 1px solid gray;
 }
 
-#notes-menu {
+.note-menu-notes {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  overflow-y: auto;
 }
 
-/* Note Selection */
 .note {
-  width: auto;
   min-height: 100px;
+  min-width: inherit;
 }
 
-.note:hover {
-  background-color: aquamarine;
-  border: 1px solid black;
-}
-
-/* Editor */
-#editor {
+.note-title {
   display: flex;
-  width: 85%;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+}
+
+/* Editor Menu */ 
+.editor-box{
+  width: 80%;
+}
+
+.editor-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px
+}
+
+.editor-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.editor-body {
+  flex: 1;
 }
