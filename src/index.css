@@ -67,9 +67,10 @@ label:hover{
 }
 
 /* Note Menu */
-.note-menu-box {
+#note-menu-box {
   width: 20%;
   border-right: 1px solid gray;
+  height: 100%;
 }
 
 .note-menu-header {
@@ -87,18 +88,22 @@ label:hover{
 }
 
 .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
   min-height: 100px;
   min-width: inherit;
 }
 
-.note-title {
-  display: flex;
-  justify-content: space-between;
+.note:hover {
+  background-color: gray;
 }
 
 /* Editor Menu */ 
-.editor-box{
-  width: 80%;
+#editor-box{
+  width: 80vw;
+  padding: 15px;
 }
 
 .editor-header{
@@ -108,11 +113,50 @@ label:hover{
   padding: 10px
 }
 
+.editor-header-title{
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: text;
+  border: 0px solid;
+}
+
+.editor-header-title:focus{
+  outline: none;
+}
+
 .editor-buttons {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 10%;
 }
 
-.editor-body {
+.body {
+  border-top: 1px solid gray;
   flex: 1;
+  padding-top: 5px;
+}
+
+.ql-editor {
+  min-height: 70vh;
+}
+
+/* Viewer Menu */
+.note-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.note-header-title {
+  font-size: 30px;
+  font-weight: 600;
+}  
+
+.note-header-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-bottom: 5px;
 }
