@@ -24,22 +24,6 @@ function Layout() {
     }
   }
 
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    };
-
-  const formatDate = (when) => {
-      const formatted = new Date(when).toLocaleString("en-US", options);
-      if (formatted === "Invalid Date") {
-          return "";
-      }
-      return formatted;
-  };
-
   const addNote = () => {
     var newNote = {
       id: uuid(),
@@ -52,11 +36,14 @@ function Layout() {
     nav(`/${newNote.id}/edit`, {replace:true});
   };
 
-  return (
-    <div className="page">
-
+  if (notes.length == 0){
+    return (
+      <div className="page">
+  
       <div className="header-flex">
-        <label id="menu" onClick={toggleMenu}>&#9776;</label>
+        <div id="menu">
+          <label onClick={toggleMenu}>&#9776;</label>
+        </div>
         <div id="title">
           <h1>Lotion</h1>
           <h5>Like Notion, but worse.</h5>
@@ -69,18 +56,50 @@ function Layout() {
                   <h1>Notes</h1>
                   <label onClick={addNote}><h3>+</h3></label>
               </div>
-              <div className="note-menu-notes">
-                {notes.map(note => (
-                  <NavLink key={note.id} to={`/${note.id}`}> 
-                    <Note id={note.id} title={note.title} date={note.date} body={note.body} />
-                  </NavLink>
-                ))}
+              <div className="no-notes-menu">
+                <h1 className="no-note">No Notes</h1>
               </div>
           </div>
-          <Outlet context={[notes, setNote]} />
+          <div className="no-notes-box">
+            <h1 className="no-note">Select Note or Create a New One</h1>
+          </div>
       </div>
     </div>
-  );
+    );
+  }
+  else {
+    return (
+      <div className="page">
+  
+        <div className="header-flex">
+          <div id="menu">
+            <label onClick={toggleMenu}>&#9776;</label>
+          </div>
+          <div id="title">
+            <h1>Lotion</h1>
+            <h5>Like Notion, but worse.</h5>
+          </div>
+        </div>
+  
+        <div className="main">
+          <div id="note-menu-box">
+                <div className="note-menu-header">
+                    <h1>Notes</h1>
+                    <label onClick={addNote}><h3>+</h3></label>
+                </div>
+                <div className="note-menu-notes">
+                  {notes.map(note => (
+                    <NavLink key={note.id} to={`/${note.id}`}> 
+                      <Note id={note.id} title={note.title} date={note.date} body={note.body} />
+                    </NavLink>
+                  ))}
+                </div>
+            </div>
+            <Outlet context={[notes, setNote]} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Layout;
